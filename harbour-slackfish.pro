@@ -16,7 +16,8 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
 
 # Translations
 CONFIG += sailfishapp_i18n
-TRANSLATIONS += translations/harbour-slackfish-fi.ts
+TRANSLATIONS += translations/harbour-slackfish-fi.ts \
+     translations/harbour-slackfish-cs.ts
 
 # Notifications
 QT += dbus
