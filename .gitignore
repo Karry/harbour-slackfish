@@ -3,3 +3,4 @@ harbour-slackfish.pro.user
 vendor
 
 /cmake-build-debug
+/.idea
