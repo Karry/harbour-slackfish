@@ -248,6 +248,10 @@ void SlackClient::parseNotification(QJsonObject message) {
 }
 
 bool SlackClient::isOk(const QNetworkReply *reply) {
+    if (reply->error() != QNetworkReply::NoError){
+        return false;
+    }
+
     int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
     if (statusCode / 100 == 2) {
@@ -663,6 +667,12 @@ void SlackClient::loadConversations(QString cursor) {
 
         combinator << AsyncFuture::observe(infoReply, &QNetworkReply::finished).future();
         connect(infoReply, &QNetworkReply::finished, [infoReply,infoMethod,this]() {
+            if (!isOk(infoReply)){
+                qWarning() << infoReply->error();
+                infoReply->deleteLater();
+                return;
+            }
+
             QJsonObject infoData = getResult(infoReply).value(infoMethod == "groups.info" ? "group" : "channel").toObject();
             QVariantMap channel;
 
