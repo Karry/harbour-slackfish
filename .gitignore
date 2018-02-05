@@ -1,3 +1,5 @@
 harbour-slackfish.pro.user
 .qmake.conf
 vendor
+
+/cmake-build-debug
