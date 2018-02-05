@@ -516,6 +516,7 @@ QVariantMap SlackClient::parseChannel(QJsonObject channel) {
     data.insert("lastRead", channel.value("last_read").toVariant());
     data.insert("unreadCount", channel.value("unread_count_display").toVariant());
     data.insert("userId", QVariant());
+    qDebug() << "Channel" << data["id"] << ": " << data["name"] << " (" << data["isOpen"] << ")";
     return data;
 }
 
