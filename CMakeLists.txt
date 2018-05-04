@@ -21,7 +21,6 @@ find_package(SailfishApp) # https://github.com/sailfish-sdk/libsailfishapp
 
 set(LANG_FILES
     translations/harbour-slackfish-fi.ts
-    translations/harbour-slackfish-cs.ts
 )
 
 QT5_CREATE_TRANSLATION(LANG_SRC ${LANG_FILES})
